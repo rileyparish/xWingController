@@ -9,9 +9,9 @@ int extendPin = 10;
 int retractPin = 11;
 
 int STEPS_PER_REV = 20;
-int revs = 4;
+int revs = 4;               // the number of revolutions to move the motor (note that this is currently an integer type)
 int coilChargeDur = 2000;   // how long the coil should be charged in microseconds; delayMicroseconds()
-int debugDelay = 20;
+int rotationDelay = 20;     // this is the amount of delay between steps. Decreasing this delay will increase the speed
 
 void setup() {
   // put your setup code here, to run once:
@@ -50,7 +50,7 @@ void stepForward(){
     execSeq2();
     execSeq3();
     execSeq4();
-    delay(debugDelay);
+    delay(rotationDelay);
 }
 
 void stepBackward(){
@@ -59,7 +59,7 @@ void stepBackward(){
     execSeq3();
     execSeq2();
     execSeq1();
-    delay(debugDelay);
+    delay(rotationDelay);
 }
 
 void execSeq1(){
